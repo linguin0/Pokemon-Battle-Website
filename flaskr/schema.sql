@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS team;
+
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL
+    total_wins INTEGER NOT NULL,
+);
+
+CREATE TABLE team (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    owner_id INTEGER NOT NULL,
+    num_pokemon INTEGER NOT NULL,
+    FOREIGN KEY (owner_id) REFERENCES user (id)
+)
